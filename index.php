@@ -49,8 +49,8 @@ try {
     </body>
     </html>';
 
-    //Megnézem, hogy a bejelentkezési adatokat megadták-e és nem üres az email és password kulcs
-    if (isset($_POST["email"]) && isset($_POST["password"]) && (!empty($_POST["email"] ?? null) && !empty($_POST["password"] ?? null))) {
+    //Null-safe operatorral vizsgálom, hogy létrejött-e és nem null a változó értéke
+    if (!empty($_POST["email"] ?? null) && !empty($_POST["password"] ?? null)) {
         $email = $_POST["email"];
         $options = ['cost' => 12,];
         $password = password_hash($_POST["password"], PASSWORD_BCRYPT, $options); //A jelszót hashelem
