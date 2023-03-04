@@ -128,3 +128,6 @@ body {
 .closebtn:hover {
   color: black;
 }
+.regformtitle {
+  text-align: left;
+}
